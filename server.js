@@ -7,7 +7,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// koneksi database
+// membuat nama alamat koneksi database
 const db = mysql.createConnection({
   host: "localhost",
   user: "root",
@@ -15,7 +15,7 @@ const db = mysql.createConnection({
   database: "notepad_db"
 });
 
-// cek koneksi database
+// cek koneksi database berhasil atau tidak
 db.connect((err) => {
   if (err) {
     console.log("Database gagal connect:", err);
@@ -30,7 +30,7 @@ app.get("/", (req, res) => {
 });
 
 
-// ==================== READ ====================
+// READ 
 app.get("/notes", (req, res) => {
   const sql = "SELECT * FROM notes";
 
@@ -45,7 +45,7 @@ app.get("/notes", (req, res) => {
 });
 
 
-// ==================== CREATE ====================
+// CREATE 
 app.post("/notes", (req, res) => {
   console.log("BODY:", req.body);
 
@@ -65,7 +65,7 @@ app.post("/notes", (req, res) => {
 });
 
 
-// ==================== UPDATE ====================
+//  UPDATE
 app.put("/notes/:id", (req, res) => {
   const id = req.params.id;
   const { title, content } = req.body;
@@ -84,7 +84,7 @@ app.put("/notes/:id", (req, res) => {
 });
 
 
-// ==================== DELETE ====================
+// DELETE 
 app.delete("/notes/:id", (req, res) => {
   const id = req.params.id;
 

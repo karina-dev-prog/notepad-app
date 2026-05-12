@@ -34,7 +34,7 @@
 
       // kalau sedang edit → pakai PUT
       if (editId !== null) {
-        url = API + "notes/" + editId;
+        url = API + "/notes/" + editId;
         method = "PUT";
       }
 
@@ -131,33 +131,91 @@
 {/each}
 
 <style>
+  :global(body) {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to right, #b5aea7, #534f4f);
+    font-family: Arial, sans-serif;
+  }
+
   h1 {
     text-align: center;
+    color: #222;
+    margin-top: 30px;
+    margin-bottom: 25px;
+    font-size: 40px;
+  }
+
+  h2 {
+    text-align: center;
+    margin-top: 40px;
+    color: #333;
   }
 
   input,
   textarea {
-    width: 300px;
-    padding: 10px;
+    width: 400px;
+    padding: 14px;
+    border-radius: 12px;
+    border: 1px solid #c69f9f;
+    outline: none;
+    font-size: 15px;
+    display: block;
+    margin: auto;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.08);
   }
 
   textarea {
-    height: 100px;
+    height: 120px;
+    resize: none;
   }
 
   button {
-    padding: 10px 20px;
+    padding: 12px 20px;
     background: black;
     color: white;
     border: none;
+    border-radius: 12px;
     cursor: pointer;
     margin-top: 10px;
+    margin-right: 10px;
+    transition: 0.2s;
+    font-weight: bold;
+  }
+
+  button:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
   }
 
   div {
-    border: 1px solid #ccc;
-    padding: 10px;
-    margin-top: 10px;
-    width: 300px;
+    background: rgb(236, 228, 228);
+    padding: 20px;
+    margin: 20px auto;
+    width: 420px;
+    border-radius: 18px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  }
+
+  h3 {
+    margin: 0;
+    color: #222;
+  }
+
+  p {
+    color: #555;
+    line-height: 1.5;
+  }
+
+  br {
+    display: none;
+  }
+
+  button:last-child {
+    background: crimson;
+  }
+
+  button:first-child {
+    background: orange;
   }
 </style>
